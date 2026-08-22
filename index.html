@@ -23,17 +23,22 @@
         --muted: #6b7280;
         --border: #e5e7eb;
         --shadow: 0 1px 3px rgba(0, 0, 0, 0.06), 0 4px 16px rgba(0, 0, 0, 0.05);
-        --shadow-lg: 0 4px 6px rgba(0, 0, 0, 0.05), 0 12px 40px rgba(0, 0, 0, 0.1);
+        --shadow-lg:
+          0 4px 6px rgba(0, 0, 0, 0.05), 0 12px 40px rgba(0, 0, 0, 0.1);
         --font: "Outfit", sans-serif;
         --mono: "JetBrains Mono", monospace;
       }
 
-      *, *::before, *::after {
+      *,
+      *::before,
+      *::after {
         box-sizing: border-box;
         margin: 0;
         padding: 0;
       }
-      html { scroll-behavior: smooth; }
+      html {
+        scroll-behavior: smooth;
+      }
       body {
         background: var(--bg);
         color: var(--text);
@@ -44,7 +49,9 @@
 
       nav {
         position: fixed;
-        top: 0; left: 0; right: 0;
+        top: 0;
+        left: 0;
+        right: 0;
         z-index: 200;
         height: 64px;
         background: rgba(247, 246, 242, 0.92);
@@ -67,9 +74,15 @@
         gap: 10px;
       }
       .nav-logo-dot {
-        width: 8px; height: 8px;
+        width: 8px;
+        height: 8px;
         background: var(--amber);
         border-radius: 50%;
+      }
+      .nav-right {
+        display: flex;
+        align-items: center;
+        gap: 36px;
       }
       .nav-links {
         display: flex;
@@ -84,7 +97,33 @@
         text-decoration: none;
         transition: color 0.2s;
       }
-      .nav-links a:hover { color: var(--dark); }
+      .nav-links a:hover {
+        color: var(--dark);
+      }
+      .nav-resume {
+        padding: 9px 18px;
+        background: var(--dark);
+        color: #fff;
+        font-family: var(--font);
+        font-size: 12px;
+        font-weight: 700;
+        letter-spacing: 0.04em;
+        text-decoration: none;
+        border: 1px solid var(--dark);
+        transition: all 0.2s;
+        display: inline-flex;
+        align-items: center;
+        gap: 7px;
+      }
+      .nav-resume:hover {
+        background: var(--amber);
+        border-color: var(--amber);
+        color: #000;
+      }
+      .nav-resume svg {
+        width: 13px;
+        height: 13px;
+      }
 
       #hero {
         min-height: 100vh;
@@ -101,18 +140,32 @@
         content: "";
         position: absolute;
         inset: 0;
-        background-image: radial-gradient(circle, rgba(255, 255, 255, 0.06) 1px, transparent 1px);
+        background-image: radial-gradient(
+          circle,
+          rgba(255, 255, 255, 0.06) 1px,
+          transparent 1px
+        );
         background-size: 36px 36px;
         pointer-events: none;
       }
       #hero::after {
         content: "";
         position: absolute;
-        top: 0; left: 0; right: 0;
+        top: 0;
+        left: 0;
+        right: 0;
         height: 3px;
-        background: linear-gradient(90deg, var(--amber) 0%, #f59e0b 50%, transparent 100%);
+        background: linear-gradient(
+          90deg,
+          var(--amber) 0%,
+          #f59e0b 50%,
+          transparent 100%
+        );
       }
-      .hero-left { position: relative; z-index: 1; }
+      .hero-left {
+        position: relative;
+        z-index: 1;
+      }
       .hero-tag {
         display: inline-flex;
         align-items: center;
@@ -132,14 +185,20 @@
         animation: fadeUp 0.7s ease 0.1s forwards;
       }
       .hero-tag-dot {
-        width: 6px; height: 6px;
+        width: 6px;
+        height: 6px;
         background: var(--amber);
         border-radius: 50%;
         animation: blink 2s ease infinite;
       }
       @keyframes blink {
-        0%, 100% { opacity: 1; }
-        50% { opacity: 0.3; }
+        0%,
+        100% {
+          opacity: 1;
+        }
+        50% {
+          opacity: 0.3;
+        }
       }
       .hero-name {
         font-size: clamp(48px, 5.5vw, 80px);
@@ -151,7 +210,9 @@
         opacity: 0;
         animation: fadeUp 0.7s ease 0.25s forwards;
       }
-      .hero-name-accent { color: var(--amber); }
+      .hero-name-accent {
+        color: var(--amber);
+      }
       .hero-title {
         font-size: clamp(15px, 1.5vw, 19px);
         font-weight: 400;
@@ -223,6 +284,27 @@
         color: #fff;
         transform: translateY(-2px);
       }
+      .btn-resume-hero {
+        padding: 13px 28px;
+        background: transparent;
+        color: #fff;
+        font-family: var(--font);
+        font-size: 13px;
+        font-weight: 700;
+        letter-spacing: 0.04em;
+        text-decoration: none;
+        border: 1px solid var(--amber);
+        transition: all 0.2s;
+        display: inline-flex;
+        align-items: center;
+        gap: 8px;
+      }
+      .btn-resume-hero:hover {
+        background: var(--amber);
+        color: #000;
+        transform: translateY(-2px);
+        box-shadow: 0 8px 24px rgba(232, 155, 32, 0.3);
+      }
       .hero-right {
         position: relative;
         z-index: 1;
@@ -243,7 +325,9 @@
         padding: 20px 22px;
         transition: border-color 0.2s;
       }
-      .hero-stat:hover { border-color: rgba(232, 155, 32, 0.3); }
+      .hero-stat:hover {
+        border-color: rgba(232, 155, 32, 0.3);
+      }
       .hs-num {
         font-family: var(--mono);
         font-size: 30px;
@@ -283,11 +367,22 @@
         color: rgba(255, 255, 255, 0.9);
         border-color: rgba(232, 155, 32, 0.2);
       }
-      .hc-item svg { width: 14px; height: 14px; flex-shrink: 0; opacity: 0.5; }
-      .hc-item:hover svg { opacity: 1; }
+      .hc-item svg {
+        width: 14px;
+        height: 14px;
+        flex-shrink: 0;
+        opacity: 0.5;
+      }
+      .hc-item:hover svg {
+        opacity: 1;
+      }
 
-      .section-wrap { padding: 100px 48px; }
-      .section-wrap.alt { background: var(--white); }
+      .section-wrap {
+        padding: 100px 48px;
+      }
+      .section-wrap.alt {
+        background: var(--white);
+      }
       .sec-eyebrow {
         font-family: var(--mono);
         font-size: 11px;
@@ -315,7 +410,9 @@
         margin-bottom: 16px;
         color: var(--dark);
       }
-      .sec-title span { color: var(--blue); }
+      .sec-title span {
+        color: var(--blue);
+      }
 
       #about {
         display: grid;
@@ -354,7 +451,9 @@
         font-weight: 700;
         color: var(--dark);
       }
-      .skill-block { margin-bottom: 24px; }
+      .skill-block {
+        margin-bottom: 24px;
+      }
       .skill-cat {
         font-family: var(--mono);
         font-size: 10px;
@@ -366,7 +465,11 @@
         padding-bottom: 6px;
         border-bottom: 1px solid var(--border);
       }
-      .skill-pills { display: flex; flex-wrap: wrap; gap: 7px; }
+      .skill-pills {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 7px;
+      }
       .pill {
         padding: 5px 12px;
         background: var(--white);
@@ -403,9 +506,16 @@
         transform: translateY(16px);
         transition: all 0.5s ease;
       }
-      .exp-item.visible { opacity: 1; transform: translateY(0); }
-      .exp-item:last-child { border-bottom: 1px solid var(--border); }
-      .exp-meta { padding-top: 4px; }
+      .exp-item.visible {
+        opacity: 1;
+        transform: translateY(0);
+      }
+      .exp-item:last-child {
+        border-bottom: 1px solid var(--border);
+      }
+      .exp-meta {
+        padding-top: 4px;
+      }
       .exp-period {
         font-family: var(--mono);
         font-size: 11px;
@@ -473,11 +583,27 @@
         opacity: 0;
         transform: translateY(16px);
       }
-      .proj-card.visible { opacity: 1; transform: translateY(0); }
+      .proj-card.visible {
+        opacity: 1;
+        transform: translateY(0);
+      }
       .proj-card:hover {
         border-color: var(--amber);
         box-shadow: var(--shadow-lg);
         transform: translateY(-3px);
+      }
+      .proj-card.wide {
+        grid-column: span 2;
+      }
+      @media (max-width: 1024px) {
+        .proj-card.wide {
+          grid-column: span 2;
+        }
+      }
+      @media (max-width: 768px) {
+        .proj-card.wide {
+          grid-column: span 1;
+        }
       }
       .proj-card-top {
         display: flex;
@@ -540,6 +666,86 @@
         color: var(--mid);
       }
 
+      .proj-media-row {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 8px;
+        padding-top: 12px;
+        border-top: 1px solid var(--border);
+        margin-top: 4px;
+      }
+      .media-btn {
+        display: inline-flex;
+        align-items: center;
+        gap: 6px;
+        padding: 7px 12px;
+        background: var(--bg);
+        border: 1px solid var(--border);
+        font-family: var(--mono);
+        font-size: 10.5px;
+        font-weight: 600;
+        letter-spacing: 0.04em;
+        color: var(--mid);
+        text-decoration: none;
+        cursor: pointer;
+        transition: all 0.18s;
+      }
+      .media-btn svg {
+        width: 12px;
+        height: 12px;
+        flex-shrink: 0;
+      }
+      .media-btn:hover {
+        border-color: var(--amber);
+        color: #b45309;
+        background: var(--amber-l);
+      }
+      .media-btn.video:hover {
+        border-color: #059669;
+        color: #059669;
+        background: #f0fdf4;
+      }
+
+      .wiring-strip {
+        display: grid;
+        grid-template-columns: repeat(5, 1fr);
+        gap: 8px;
+        margin-top: 4px;
+      }
+      .wiring-thumb {
+        aspect-ratio: 4/3;
+        background: var(--bg);
+        border: 1px solid var(--border);
+        cursor: pointer;
+        overflow: hidden;
+        position: relative;
+      }
+      .wiring-thumb img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        display: block;
+        transition: transform 0.25s ease;
+      }
+      .wiring-thumb:hover img {
+        transform: scale(1.06);
+      }
+      .wiring-thumb-num {
+        position: absolute;
+        top: 4px;
+        left: 4px;
+        background: rgba(11, 18, 33, 0.75);
+        color: #fff;
+        font-family: var(--mono);
+        font-size: 9px;
+        padding: 2px 6px;
+      }
+      @media (max-width: 768px) {
+        .wiring-strip {
+          grid-template-columns: repeat(3, 1fr);
+        }
+      }
+
       .certs-grid {
         display: grid;
         grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
@@ -560,7 +766,8 @@
         box-shadow: var(--shadow);
       }
       .cert-icon {
-        width: 44px; height: 44px;
+        width: 44px;
+        height: 44px;
         flex-shrink: 0;
         background: var(--amber-l);
         border: 1px solid rgba(232, 155, 32, 0.2);
@@ -568,6 +775,10 @@
         align-items: center;
         justify-content: center;
         font-size: 20px;
+      }
+      .cert-body-wrap {
+        flex: 1;
+        min-width: 0;
       }
       .cert-name {
         font-size: 15px;
@@ -582,9 +793,96 @@
         letter-spacing: 0.1em;
         margin-bottom: 4px;
       }
-      .cert-status { font-size: 12px; }
-      .cert-status.pending { color: #d97706; }
-      .cert-status.done { color: #059669; font-weight: 600; }
+      .cert-status {
+        font-size: 12px;
+      }
+      .cert-status.pending {
+        color: #d97706;
+      }
+      .cert-status.done {
+        color: #059669;
+        font-weight: 600;
+      }
+      .cert-view-link {
+        display: inline-flex;
+        align-items: center;
+        gap: 5px;
+        margin-top: 8px;
+        font-family: var(--mono);
+        font-size: 10px;
+        font-weight: 600;
+        letter-spacing: 0.04em;
+        color: var(--amber);
+        text-decoration: none;
+        cursor: pointer;
+        border: none;
+        background: none;
+        padding: 0;
+      }
+      .cert-view-link:hover {
+        color: #b45309;
+        text-decoration: underline;
+      }
+      .cert-view-link svg {
+        width: 11px;
+        height: 11px;
+      }
+
+      /* Media modal (video + image lightbox) */
+      .modal-overlay {
+        display: none;
+        position: fixed;
+        inset: 0;
+        z-index: 500;
+        background: rgba(7, 13, 25, 0.92);
+        align-items: center;
+        justify-content: center;
+        padding: 40px;
+      }
+      .modal-overlay.open {
+        display: flex;
+      }
+      .modal-content {
+        position: relative;
+        max-width: 900px;
+        width: 100%;
+        max-height: 85vh;
+      }
+      .modal-content video,
+      .modal-content img {
+        width: 100%;
+        max-height: 85vh;
+        object-fit: contain;
+        display: block;
+        background: #000;
+      }
+      .modal-close {
+        position: absolute;
+        top: -40px;
+        right: 0;
+        background: transparent;
+        border: 1px solid rgba(255, 255, 255, 0.3);
+        color: #fff;
+        width: 32px;
+        height: 32px;
+        font-size: 18px;
+        cursor: pointer;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        transition: all 0.2s;
+      }
+      .modal-close:hover {
+        border-color: var(--amber);
+        color: var(--amber);
+      }
+      .modal-caption {
+        margin-top: 12px;
+        font-family: var(--mono);
+        font-size: 11px;
+        color: rgba(255, 255, 255, 0.5);
+        text-align: center;
+      }
 
       #contact-section {
         background: var(--dark);
@@ -596,14 +894,20 @@
         content: "";
         position: absolute;
         inset: 0;
-        background-image: radial-gradient(circle, rgba(255, 255, 255, 0.04) 1px, transparent 1px);
+        background-image: radial-gradient(
+          circle,
+          rgba(255, 255, 255, 0.04) 1px,
+          transparent 1px
+        );
         background-size: 36px 36px;
         pointer-events: none;
       }
       #contact-section::after {
         content: "";
         position: absolute;
-        bottom: 0; left: 0; right: 0;
+        bottom: 0;
+        left: 0;
+        right: 0;
         height: 2px;
         background: linear-gradient(90deg, var(--amber), transparent);
       }
@@ -626,10 +930,12 @@
         gap: 12px;
         margin-bottom: 20px;
       }
-      .contact-eyebrow::before, .contact-eyebrow::after {
+      .contact-eyebrow::before,
+      .contact-eyebrow::after {
         content: "";
         display: block;
-        width: 28px; height: 1px;
+        width: 28px;
+        height: 1px;
         background: var(--amber);
       }
       .contact-heading {
@@ -640,15 +946,38 @@
         margin-bottom: 16px;
         line-height: 1;
       }
-      .contact-heading span { color: var(--amber); }
+      .contact-heading span {
+        color: var(--amber);
+      }
       .contact-sub {
         font-size: 15px;
         color: rgba(255, 255, 255, 0.5);
         line-height: 1.7;
-        margin-bottom: 52px;
+        margin-bottom: 36px;
         max-width: 480px;
         margin-left: auto;
         margin-right: auto;
+      }
+      .contact-resume-btn {
+        display: inline-flex;
+        align-items: center;
+        gap: 8px;
+        padding: 13px 28px;
+        background: var(--amber);
+        color: #000;
+        font-family: var(--font);
+        font-size: 13px;
+        font-weight: 700;
+        letter-spacing: 0.04em;
+        text-decoration: none;
+        border: none;
+        transition: all 0.2s;
+        margin-bottom: 52px;
+      }
+      .contact-resume-btn:hover {
+        background: #fbbf24;
+        transform: translateY(-2px);
+        box-shadow: 0 8px 24px rgba(232, 155, 32, 0.3);
       }
       .contact-grid {
         display: grid;
@@ -680,9 +1009,18 @@
         color: #fff;
         transform: translateY(-3px);
       }
-      .contact-tile svg { width: 20px; height: 20px; opacity: 0.6; }
-      .contact-tile:hover svg { opacity: 1; color: var(--amber); }
-      .contact-tile.loc { cursor: default; }
+      .contact-tile svg {
+        width: 20px;
+        height: 20px;
+        opacity: 0.6;
+      }
+      .contact-tile:hover svg {
+        opacity: 1;
+        color: var(--amber);
+      }
+      .contact-tile.loc {
+        cursor: default;
+      }
       .contact-row-2 {
         grid-column: 1 / -1;
         display: grid;
@@ -703,34 +1041,79 @@
         letter-spacing: 0.1em;
         color: rgba(255, 255, 255, 0.2);
       }
-      .ft span { color: rgba(232, 155, 32, 0.7); }
+      .ft span {
+        color: rgba(232, 155, 32, 0.7);
+      }
 
       @keyframes fadeUp {
-        from { opacity: 0; transform: translateY(20px); }
-        to { opacity: 1; transform: translateY(0); }
+        from {
+          opacity: 0;
+          transform: translateY(20px);
+        }
+        to {
+          opacity: 1;
+          transform: translateY(0);
+        }
       }
       @keyframes fadeIn {
-        from { opacity: 0; }
-        to { opacity: 1; }
+        from {
+          opacity: 0;
+        }
+        to {
+          opacity: 1;
+        }
       }
 
       @media (max-width: 1024px) {
-        #hero { grid-template-columns: 1fr; }
-        .hero-right { display: none; }
-        .proj-grid { grid-template-columns: 1fr 1fr; }
+        #hero {
+          grid-template-columns: 1fr;
+        }
+        .hero-right {
+          display: none;
+        }
+        .proj-grid {
+          grid-template-columns: 1fr 1fr;
+        }
       }
       @media (max-width: 768px) {
-        nav { padding: 0 20px; }
-        .nav-links { display: none; }
-        #hero { padding: 100px 20px 60px; }
-        .section-wrap { padding: 72px 20px; }
-        #about { grid-template-columns: 1fr; gap: 40px; }
-        .exp-item { grid-template-columns: 1fr; gap: 8px; }
-        .proj-grid { grid-template-columns: 1fr; }
-        .contact-grid { grid-template-columns: 1fr 1fr; }
-        .contact-row-2 { grid-template-columns: 1fr; }
-        footer { flex-direction: column; gap: 8px; text-align: center; padding: 20px; }
-        #contact-section { padding: 72px 20px; }
+        nav {
+          padding: 0 20px;
+        }
+        .nav-links {
+          display: none;
+        }
+        #hero {
+          padding: 100px 20px 60px;
+        }
+        .section-wrap {
+          padding: 72px 20px;
+        }
+        #about {
+          grid-template-columns: 1fr;
+          gap: 40px;
+        }
+        .exp-item {
+          grid-template-columns: 1fr;
+          gap: 8px;
+        }
+        .proj-grid {
+          grid-template-columns: 1fr;
+        }
+        .contact-grid {
+          grid-template-columns: 1fr 1fr;
+        }
+        .contact-row-2 {
+          grid-template-columns: 1fr;
+        }
+        footer {
+          flex-direction: column;
+          gap: 8px;
+          text-align: center;
+          padding: 20px;
+        }
+        #contact-section {
+          padding: 72px 20px;
+        }
       }
     </style>
   </head>
@@ -740,13 +1123,28 @@
         <span class="nav-logo-dot"></span>
         MUHAMMAD HASSAN
       </a>
-      <ul class="nav-links">
-        <li><a href="#about">About</a></li>
-        <li><a href="#experience">Experience & Training</a></li>
-        <li><a href="#projects">Automation Projects</a></li>
-        <li><a href="#certifications">Credentials</a></li>
-        <li><a href="#contact-section">Contact</a></li>
-      </ul>
+      <div class="nav-right">
+        <ul class="nav-links">
+          <li><a href="#about">About</a></li>
+          <li><a href="#experience">Experience & Training</a></li>
+          <li><a href="#projects">Automation Projects</a></li>
+          <li><a href="#certifications">Credentials</a></li>
+          <li><a href="#contact-section">Contact</a></li>
+        </ul>
+        <a href="resume/Muhammad-Hassan-Resume.pdf" download class="nav-resume">
+          <svg
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="2.2"
+          >
+            <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4" />
+            <path d="M7 10l5 5 5-5" />
+            <path d="M12 15V3" />
+          </svg>
+          Resume
+        </a>
+      </div>
     </nav>
 
     <section id="hero">
@@ -759,20 +1157,61 @@
           Muhammad<br /><span class="hero-name-accent">Hassan</span>
         </h1>
         <p class="hero-title">
-          PLC / SCADA Systems &nbsp;·&nbsp; Instrumentation &nbsp;·&nbsp; Process Control
+          PLC / SCADA Systems &nbsp;·&nbsp; Instrumentation &nbsp;·&nbsp;
+          Process Control
         </p>
         <p class="hero-desc">
-          Electrical Engineering Graduate from <strong>FAST-NU</strong> with practical experience in <strong>industrial automation, PLC/SCADA programming, and power systems</strong>. Skilled in Siemens TIA Portal (S7-1200/1500), industrial protocols (Modbus, Profinet, Profibus), and instrumentation scaling, backed by grid-level internship exposure at <strong>NTDC</strong>.
+          Electrical Engineering Graduate from <strong>FAST-NU</strong> with
+          practical experience in
+          <strong
+            >industrial automation, PLC/SCADA programming, and power
+            systems</strong
+          >. Skilled in Siemens TIA Portal (S7-1200/1500), industrial protocols
+          (Modbus, Profinet, Profibus), and instrumentation scaling, backed by
+          grid-level internship exposure at <strong>NTDC</strong>.
         </p>
         <div class="hero-btns">
           <a href="#projects" class="btn-amber">
-            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+            <svg
+              width="14"
+              height="14"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="2.5"
+            >
               <path d="m9 18 6-6-6-6" />
             </svg>
             View Automation Projects
           </a>
+          <a
+            href="resume/Muhammad-Hassan-Resume.pdf"
+            download
+            class="btn-resume-hero"
+          >
+            <svg
+              width="14"
+              height="14"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="2.2"
+            >
+              <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4" />
+              <path d="M7 10l5 5 5-5" />
+              <path d="M12 15V3" />
+            </svg>
+            Download Resume
+          </a>
           <a href="mailto:hassangoraya4321@gmail.com" class="btn-outline">
-            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <svg
+              width="14"
+              height="14"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="2"
+            >
               <rect x="2" y="4" width="20" height="16" rx="2" />
               <path d="m22 7-10 7L2 7" />
             </svg>
@@ -784,7 +1223,7 @@
       <div class="hero-right">
         <div class="hero-stats-row">
           <div class="hero-stat">
-            <div class="hs-num">11+</div>
+            <div class="hs-num">20+</div>
             <div class="hs-label">PLC &amp; Logic Projects</div>
           </div>
           <div class="hero-stat">
@@ -802,23 +1241,41 @@
         </div>
         <div class="hero-contact-row">
           <a href="mailto:hassangoraya4321@gmail.com" class="hc-item">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <svg
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="2"
+            >
               <rect x="2" y="4" width="20" height="16" rx="2" />
               <path d="m22 7-10 7L2 7" />
             </svg>
             hassangoraya4321@gmail.com
           </a>
-          <a href="https://www.linkedin.com/in/hassangoraya-/" target="_blank" class="hc-item">
+          <a
+            href="https://www.linkedin.com/in/hassangoraya-/"
+            target="_blank"
+            class="hc-item"
+          >
             <svg viewBox="0 0 24 24" fill="currentColor">
-              <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-4 0v7H10v-7a6 6 0 0 1 6-6z" />
+              <path
+                d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-4 0v7H10v-7a6 6 0 0 1 6-6z"
+              />
               <rect x="2" y="9" width="4" height="12" />
               <circle cx="4" cy="4" r="2" />
             </svg>
             linkedin.com/in/hassangoraya-/
           </a>
           <a href="tel:+923203435296" class="hc-item">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-              <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 14a19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 3.6 3.18h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L7.91 10a16 16 0 0 0 6 6l.92-.92a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 21.73 17z" />
+            <svg
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="2"
+            >
+              <path
+                d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 14a19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 3.6 3.18h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L7.91 10a16 16 0 0 0 6 6l.92-.92a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 21.73 17z"
+              />
             </svg>
             +92-320-3435296
           </a>
@@ -833,10 +1290,21 @@
           Engineered for <span>Industrial Automation</span>
         </h2>
         <p class="about-prose">
-          I am an Electrical Engineering graduate from FAST-NU Lahore (Class of 2026) specializing in <strong>PLC/SCADA control logic, process instrumentation, and power distribution</strong>.
+          I am an Electrical Engineering graduate from FAST-NU Lahore (Class of
+          2026) specializing in
+          <strong
+            >PLC/SCADA control logic, process instrumentation, and power
+            distribution</strong
+          >.
         </p>
         <p class="about-prose">
-          Through intensive practical training at DTI Lahore and hands-on grid maintenance at NTDC, I have built strong capabilities in <strong>Siemens TIA Portal (S7-1200/1500), HMI visualization, Modbus/Profinet communication, and analog sensor scaling</strong> for safety-critical industrial environments.
+          Through intensive practical training at DTI Lahore and hands-on grid
+          maintenance at NTDC, I have built strong capabilities in
+          <strong
+            >Siemens TIA Portal (S7-1200/1500), HMI visualization,
+            Modbus/Profinet communication, and analog sensor scaling</strong
+          >
+          for safety-critical industrial environments.
         </p>
         <div class="about-cards">
           <div class="about-card">
@@ -911,10 +1379,8 @@
       <div class="exp-grid">
         <div class="exp-item">
           <div class="exp-meta">
-            <div class="exp-period">Certified 2025</div>
-            <div class="exp-org">
-              Descon Technical Institute (DTI), Lahore
-            </div>
+            <div class="exp-period">Certified 2026</div>
+            <div class="exp-org">Descon Technical Institute (DTI), Lahore</div>
           </div>
           <div class="exp-content">
             <div class="exp-role">PLC, HMI &amp; SCADA Automation Training</div>
@@ -923,16 +1389,21 @@
             </div>
             <ul class="exp-bullets">
               <li>
-                Completed practical training on Siemens S7-1200/1500 PLCs, WinCC HMI design, and SCADA control architectures using Siemens TIA Portal.
+                Completed practical training on Siemens S7-1200/1500 PLCs, WinCC
+                HMI design, and SCADA control architectures using Siemens TIA
+                Portal.
               </li>
               <li>
-                Programmed control logic using Ladder Diagram (LAD) and Function Block Diagram (FBD) for industrial sequence and process control.
+                Programmed control logic using Ladder Diagram (LAD) and Function
+                Block Diagram (FBD) for industrial sequence and process control.
               </li>
               <li>
-                Configured Modbus, Profinet, and Profibus protocols for remote I/O integration and field sensor communication.
+                Configured Modbus, Profinet, and Profibus protocols for remote
+                I/O integration and field sensor communication.
               </li>
               <li>
-                Executed analog signal scaling, PID loop configuration, and HMI screen layout design for real-time process monitoring.
+                Executed analog signal scaling, PID loop configuration, and HMI
+                screen layout design for real-time process monitoring.
               </li>
             </ul>
           </div>
@@ -952,13 +1423,16 @@
             </div>
             <ul class="exp-bullets">
               <li>
-                Gained exposure to live 220 kV transmission systems, switchgear isolation, busbar arrangements, and SCADA monitoring protocols.
+                Gained exposure to live 220 kV transmission systems, switchgear
+                isolation, busbar arrangements, and SCADA monitoring protocols.
               </li>
               <li>
-                Participated in safety-critical transformer maintenance, fault diagnosis, and equipment re-energization activities.
+                Participated in safety-critical transformer maintenance, fault
+                diagnosis, and equipment re-energization activities.
               </li>
               <li>
-                Studied protection relay schemes and single-line diagrams (SLD) in operational substation environments.
+                Studied protection relay schemes and single-line diagrams (SLD)
+                in operational substation environments.
               </li>
             </ul>
           </div>
@@ -968,17 +1442,25 @@
 
     <section id="projects" class="section-wrap alt">
       <div class="sec-eyebrow">Automation &amp; Control Projects</div>
-      <h2 class="sec-title">PLC &amp; Process Control <span>Portfolio</span></h2>
+      <h2 class="sec-title">
+        PLC &amp; Process Control <span>Portfolio</span>
+      </h2>
 
       <div class="proj-grid">
+        <!-- 1: Analog Signal Scaling -->
         <div class="proj-card">
           <div class="proj-card-top">
             <span class="proj-year">TIA Portal V17</span>
             <span class="proj-domain">Instrumentation</span>
           </div>
-          <div class="proj-title">Analog Signal Scaling (Pressure Transmitter)</div>
+          <div class="proj-title">
+            Analog Signal Scaling (Pressure Transmitter)
+          </div>
           <div class="proj-desc">
-            Configured 4–20 mA analog input processing from a pressure transmitter using NORM_X and SCALE_X blocks on Siemens S7-1200. Designed HMI visualization with real-time pressure readouts, high/low threshold alarms, and fault diagnostic indications.
+            Configured 4–20 mA analog input processing from a pressure
+            transmitter using NORM_X and SCALE_X blocks on Siemens S7-1200.
+            Designed HMI visualization with real-time pressure readouts,
+            high/low threshold alarms, and fault diagnostic indications.
           </div>
           <div class="proj-tags">
             <span class="proj-tag">TIA Portal</span>
@@ -986,8 +1468,29 @@
             <span class="proj-tag">4-20 mA</span>
             <span class="proj-tag">WinCC HMI</span>
           </div>
+          <div class="proj-media-row">
+            <a
+              class="media-btn"
+              href="docs/8-Scale%20a%20Raw%20Analog%20Signal%20from%20a%20Pressure%20Transmitter.pdf"
+              target="_blank"
+            >
+              <svg
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2"
+              >
+                <path
+                  d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"
+                />
+                <path d="M14 2v6h6" />
+              </svg>
+              View PDF
+            </a>
+          </div>
         </div>
 
+        <!-- 2: Cascade Tank -->
         <div class="proj-card">
           <div class="proj-card-top">
             <span class="proj-year">TIA Portal V17</span>
@@ -995,7 +1498,10 @@
           </div>
           <div class="proj-title">Cascade Tank Level Equalization</div>
           <div class="proj-desc">
-            Implemented closed-loop level control across cascaded process tanks using analog ultrasonic level sensors and proportional control valve positioning. Programmed interlocks to prevent tank overflow and dry-run pump damage.
+            Implemented closed-loop level control across cascaded process tanks
+            using analog ultrasonic level sensors and proportional control valve
+            positioning. Programmed interlocks to prevent tank overflow and
+            dry-run pump damage.
           </div>
           <div class="proj-tags">
             <span class="proj-tag">S7-1500</span>
@@ -1003,8 +1509,29 @@
             <span class="proj-tag">Analog Control</span>
             <span class="proj-tag">Interlocks</span>
           </div>
+          <div class="proj-media-row">
+            <a
+              class="media-btn"
+              href="docs/10-Cascade%20Tank%20Level%20Equalization.pdf"
+              target="_blank"
+            >
+              <svg
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2"
+              >
+                <path
+                  d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"
+                />
+                <path d="M14 2v6h6" />
+              </svg>
+              View PDF
+            </a>
+          </div>
         </div>
 
+        <!-- 3: Batch Mixing -->
         <div class="proj-card">
           <div class="proj-card-top">
             <span class="proj-year">TIA Portal V17</span>
@@ -1012,7 +1539,10 @@
           </div>
           <div class="proj-title">Two-Ingredient Batch Mixing System</div>
           <div class="proj-desc">
-            Designed multi-stage batch mixing control logic using sequential function sequences, timers, and counter blocks. Integrated automated valve opening, agitator motor control, and temperature interlocks with emergency stop safety override.
+            Designed multi-stage batch mixing control logic using sequential
+            function sequences, timers, and counter blocks. Integrated automated
+            valve opening, agitator motor control, and temperature interlocks
+            with emergency stop safety override.
           </div>
           <div class="proj-tags">
             <span class="proj-tag">TIA Portal</span>
@@ -1020,25 +1550,108 @@
             <span class="proj-tag">Counters</span>
             <span class="proj-tag">Safety Relay</span>
           </div>
+          <div class="proj-media-row">
+            <button
+              class="media-btn video"
+              onclick="
+                openMediaModal(
+                  'video',
+                  'media/videos/Batch mixing.mp4',
+                  'Two-Ingredient Batch Mixing System',
+                )
+              "
+            >
+              <svg viewBox="0 0 24 24" fill="currentColor">
+                <path d="M8 5v14l11-7z" />
+              </svg>
+              Watch Demo
+            </button>
+            <a
+              class="media-btn"
+              href="docs/9-Two-Ingredient%20Batch%20Mixers.pdf"
+              target="_blank"
+            >
+              <svg
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2"
+              >
+                <path
+                  d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"
+                />
+                <path d="M14 2v6h6" />
+              </svg>
+              View PDF
+            </a>
+          </div>
         </div>
 
+        <!-- 4: Multi-Product Conveyor Sortation (weight-based simulation) -->
         <div class="proj-card">
           <div class="proj-card-top">
             <span class="proj-year">TIA Portal V17</span>
-            <span class="proj-domain">Factory Automation</span>
+            <span class="proj-domain">Simulation</span>
           </div>
-          <div class="proj-title">Multi-Product Conveyor Sortation</div>
+          <div class="proj-title">
+            Multi-Product Conveyor Sortation (Weight-Based)
+          </div>
           <div class="proj-desc">
-            Engineered sensor-based material classification and sorting system on a conveyor line using photoelectric proximity sensors and pneumatic pusher actuators. Tracked package throughput via HMI counter screens.
+            Simulation-only sortation logic that classifies products into light,
+            medium, and heavy weight bands using IN_RANGE comparisons, routing
+            each to its own counted chute with ADD/CALCULATE blocks tracking
+            sort ratios and a balance alarm. Includes a custom-built random
+            weight generator function block (system-time seed → MOD/ROL mixing →
+            NORM_X/SCALE_X) built from scratch since TIA Portal has no native
+            random block.
           </div>
           <div class="proj-tags">
-            <span class="proj-tag">S7-1200</span>
-            <span class="proj-tag">Proximity Sensors</span>
-            <span class="proj-tag">Pneumatics</span>
-            <span class="proj-tag">HMI Counter</span>
+            <span class="proj-tag">IN_RANGE</span>
+            <span class="proj-tag">Custom FC</span>
+            <span class="proj-tag">Real-Time Math</span>
+            <span class="proj-tag">Counters</span>
+          </div>
+          <div class="proj-media-row">
+            <a
+              class="media-btn"
+              href="docs/11.1-Multi-Product%20Conveyor%20Sortation.pdf"
+              target="_blank"
+            >
+              <svg
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2"
+              >
+                <path
+                  d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"
+                />
+                <path d="M14 2v6h6" />
+              </svg>
+              PDF Part 1
+            </a>
+            <a
+              class="media-btn"
+              href="docs/11.2-Multi-Product%20Conveyor%20Sortation%20part2.pdf"
+              target="_blank"
+            >
+              <svg
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2"
+              >
+                <path
+                  d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"
+                />
+                <path d="M14 2v6h6" />
+              </svg>
+              PDF Part 2
+            </a>
           </div>
         </div>
 
+        <!-- 5: Water Pump -->
         <div class="proj-card">
           <div class="proj-card-top">
             <span class="proj-year">TIA Portal V17</span>
@@ -1046,47 +1659,117 @@
           </div>
           <div class="proj-title">Automated Water Pump Level Control</div>
           <div class="proj-desc">
-            Developed level-based dual pump switching logic (Lead/Lag operational control) for water reservoir management, featuring automatic pump alternation to ensure equal wear and low-level dry run protection.
+            Developed level-based dual pump switching logic (Lead/Lag
+            operational control) for water reservoir management, featuring
+            automatic pump alternation to ensure equal wear and low-level dry
+            run protection.
           </div>
           <div class="proj-tags">
             <span class="proj-tag">Lead/Lag Control</span>
             <span class="proj-tag">Level Switches</span>
             <span class="proj-tag">Motor Control</span>
           </div>
+          <div class="proj-media-row">
+            <a class="media-btn" href="docs/3-water%20pump.pdf" target="_blank">
+              <svg
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2"
+              >
+                <path
+                  d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"
+                />
+                <path d="M14 2v6h6" />
+              </svg>
+              View PDF
+            </a>
+          </div>
         </div>
 
+        <!-- 6: Motor Startup Delay & Cooling Fan -->
         <div class="proj-card">
           <div class="proj-card-top">
             <span class="proj-year">TIA Portal V17</span>
             <span class="proj-domain">Safety Logic</span>
           </div>
-          <div class="proj-title">Motor Startup Delay &amp; Flashing Annunciator</div>
+          <div class="proj-title">
+            Motor Startup Delay &amp; Cooling Fan (TON + TOF)
+          </div>
           <div class="proj-desc">
-            Programmed safety start warning sequence with pre-startup buzzer activation (TON timer) and post-trip motor cooling flash indicators (TOF timer) adhering to industrial safety signaling norms.
+            Programmed safety start warning sequence with pre-startup buzzer
+            activation (TON timer) and post-trip motor cooling fan run-on (TOF
+            timer) adhering to industrial safety signaling norms.
           </div>
           <div class="proj-tags">
             <span class="proj-tag">TON / TOF Timers</span>
             <span class="proj-tag">Safety Annunciator</span>
             <span class="proj-tag">Ladder Logic</span>
           </div>
+          <div class="proj-media-row">
+            <a
+              class="media-btn"
+              href="docs/1-Motor%20Start%20Delay%20%26%20Cooling%20Fan%20%28TON%20%2B%20TOF%29.pdf"
+              target="_blank"
+            >
+              <svg
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2"
+              >
+                <path
+                  d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"
+                />
+                <path d="M14 2v6h6" />
+              </svg>
+              View PDF
+            </a>
+          </div>
         </div>
 
+        <!-- 7: Door Lock -->
         <div class="proj-card">
           <div class="proj-card-top">
             <span class="proj-year">TIA Portal V17</span>
             <span class="proj-domain">Access Automation</span>
           </div>
-          <div class="proj-title">Automatic Door Lock &amp; Room Automation</div>
+          <div class="proj-title">
+            Automatic Door Lock &amp; Room Automation
+          </div>
           <div class="proj-desc">
-            Designed access control logic utilizing state machine programming for solenoid lock actuation, occupancy counting, and energy-saving lighting control interlocks.
+            Designed access control logic utilizing state machine programming
+            for solenoid lock actuation, occupancy counting, and energy-saving
+            lighting control interlocks.
           </div>
           <div class="proj-tags">
             <span class="proj-tag">State Machine</span>
             <span class="proj-tag">Access Control</span>
             <span class="proj-tag">S7-1200</span>
           </div>
+          <div class="proj-media-row">
+            <a
+              class="media-btn"
+              href="docs/2-Room%20Automation.pdf"
+              target="_blank"
+            >
+              <svg
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2"
+              >
+                <path
+                  d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"
+                />
+                <path d="M14 2v6h6" />
+              </svg>
+              View PDF
+            </a>
+          </div>
         </div>
 
+        <!-- 8: Car Parking -->
         <div class="proj-card">
           <div class="proj-card-top">
             <span class="proj-year">TIA Portal V17</span>
@@ -1094,15 +1777,53 @@
           </div>
           <div class="proj-title">Automated Car Parking System Counter</div>
           <div class="proj-desc">
-            Configured bi-directional vehicle counting logic with entry/exit barrier control, dynamic capacity display on HMI, and full-lot signal interlocks.
+            Configured bi-directional vehicle counting logic with entry/exit
+            barrier control, dynamic capacity display on HMI, and full-lot
+            signal interlocks.
           </div>
           <div class="proj-tags">
             <span class="proj-tag">CTU / CTD Counters</span>
             <span class="proj-tag">HMI Display</span>
             <span class="proj-tag">Barrier Control</span>
           </div>
+          <div class="proj-media-row">
+            <button
+              class="media-btn video"
+              onclick="
+                openMediaModal(
+                  'video',
+                  'media/videos/car parking.mp4',
+                  'Automated Car Parking System Counter',
+                )
+              "
+            >
+              <svg viewBox="0 0 24 24" fill="currentColor">
+                <path d="M8 5v14l11-7z" />
+              </svg>
+              Watch Demo
+            </button>
+            <a
+              class="media-btn"
+              href="docs/4-Automatic%20Car%20Parking%20System.pdf"
+              target="_blank"
+            >
+              <svg
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2"
+              >
+                <path
+                  d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"
+                />
+                <path d="M14 2v6h6" />
+              </svg>
+              View PDF
+            </a>
+          </div>
         </div>
 
+        <!-- 9: Digital Twin -->
         <div class="proj-card">
           <div class="proj-card-top">
             <span class="proj-year">Final Year Project</span>
@@ -1110,12 +1831,583 @@
           </div>
           <div class="proj-title">Digital Twin Battery Monitoring System</div>
           <div class="proj-desc">
-            Developed an embedded digital twin on microcontrollers for real-time tracking of voltage, current, and temperature, deploying on-device machine learning for anomaly detection in energy storage systems.
+            Developed an embedded digital twin on microcontrollers for real-time
+            tracking of voltage, current, and temperature, deploying on-device
+            machine learning for anomaly detection in energy storage systems.
           </div>
           <div class="proj-tags">
             <span class="proj-tag">Microcontroller</span>
             <span class="proj-tag">Edge Impulse</span>
             <span class="proj-tag">Predictive Maintenance</span>
+          </div>
+          <div class="proj-media-row">
+            <button
+              class="media-btn"
+              onclick="
+                openMediaModal(
+                  'image',
+                  'media/certs/Build & Deploy AI on Embedded System.jpeg',
+                  'Build & Deploy AI on Embedded Systems — Course Certificate',
+                )
+              "
+            >
+              <svg
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2"
+              >
+                <circle cx="12" cy="8" r="6" />
+                <path d="M9 14 6.5 22l5.5-3 5.5 3L15 14" />
+              </svg>
+              View Certificate
+            </button>
+          </div>
+        </div>
+
+        <!-- 10: Metal & Plastic Sorting (Hardware) -->
+        <div class="proj-card">
+          <div class="proj-card-top">
+            <span class="proj-year">DTI · Hardware</span>
+            <span class="proj-domain hw">Hardware</span>
+          </div>
+          <div class="proj-title">
+            Metal &amp; Plastic Sorting System (Hardware)
+          </div>
+          <div class="proj-desc">
+            Built a working PLC-driven waste segregation prototype on a physical
+            conveyor. A seal-in Start/Stop circuit runs the conveyor motor;
+            inductive/capacitive sensors detect metal and plastic objects and
+            energize dedicated hydraulic pumps to divert each into its own
+            collection section. The 220V motor is switched safely from the PLC's
+            24V output through a relay interface.
+          </div>
+          <div class="proj-tags">
+            <span class="proj-tag">S7-1200</span>
+            <span class="proj-tag">Hydraulic Pumps</span>
+            <span class="proj-tag">Relay Interfacing</span>
+            <span class="proj-tag">Seal-In Logic</span>
+          </div>
+          <div class="proj-media-row">
+            <button
+              class="media-btn video"
+              onclick="
+                openMediaModal(
+                  'video',
+                  'media/videos/coneyor sorting.mp4',
+                  'Metal & Plastic Sorting System (Hardware)',
+                )
+              "
+            >
+              <svg viewBox="0 0 24 24" fill="currentColor">
+                <path d="M8 5v14l11-7z" />
+              </svg>
+              Watch Demo
+            </button>
+          </div>
+        </div>
+
+        <!-- 11: 3-Phase Motor Forward/Reverse -->
+        <div class="proj-card">
+          <div class="proj-card-top">
+            <span class="proj-year">DTI · Hardware</span>
+            <span class="proj-domain hw">Hardware</span>
+          </div>
+          <div class="proj-title">
+            3-Phase Motor Forward/Reverse Control (Auto Cycle)
+          </div>
+          <div class="proj-desc">
+            Timer-based auto-cycle controlling a 3-phase induction motor through
+            contactors on real hardware: forward 20s → 20s delay → reverse 20s →
+            20s delay, repeating until Stop. Chained TP (pulse) timers with
+            elapsed-time (.ET) comparators hand off each stage cleanly, a TOF
+            timer drives the loop-back bit, and Reset Time (RT) coils tied to
+            Stop return the system to a clean state. Forward and reverse
+            contactors are hardwired with interlocking to prevent a phase
+            short-circuit.
+          </div>
+          <div class="proj-tags">
+            <span class="proj-tag">TP / TOF Timers</span>
+            <span class="proj-tag">.ET Comparators</span>
+            <span class="proj-tag">Contactor Interlocking</span>
+            <span class="proj-tag">3-Phase Motor</span>
+          </div>
+          <div class="proj-media-row">
+            <button
+              class="media-btn video"
+              onclick="
+                openMediaModal(
+                  'video',
+                  'media/videos/3 phase motor control with PLC.mp4',
+                  '3-Phase Motor Forward/Reverse Control',
+                )
+              "
+            >
+              <svg viewBox="0 0 24 24" fill="currentColor">
+                <path d="M8 5v14l11-7z" />
+              </svg>
+              Watch Demo
+            </button>
+          </div>
+        </div>
+
+        <!-- 12: VFD Motor -->
+        <div class="proj-card">
+          <div class="proj-card-top">
+            <span class="proj-year">DTI · Hardware</span>
+            <span class="proj-domain hw">Hardware</span>
+          </div>
+          <div class="proj-title">
+            3-Phase VFD Motor Speed Control (iKon 300 Series)
+          </div>
+          <div class="proj-desc">
+            Programmed a 3-phase VFD to control induction motor speed via output
+            frequency, using keypad-based parameter setup for jogging,
+            forward/reverse direction control, and soft-start/soft-stop ramping.
+          </div>
+          <div class="proj-tags">
+            <span class="proj-tag">VFD</span>
+            <span class="proj-tag">iKon 300 Series</span>
+            <span class="proj-tag">Frequency Control</span>
+            <span class="proj-tag">Soft-Start/Stop</span>
+          </div>
+          <div class="proj-media-row">
+            <button
+              class="media-btn video"
+              onclick="
+                openMediaModal(
+                  'video',
+                  'media/videos/vfd motor.mp4',
+                  '3-Phase VFD Motor Speed Control',
+                )
+              "
+            >
+              <svg viewBox="0 0 24 24" fill="currentColor">
+                <path d="M8 5v14l11-7z" />
+              </svg>
+              Watch Demo
+            </button>
+          </div>
+        </div>
+
+        <!-- 13: Traffic Light -->
+        <div class="proj-card">
+          <div class="proj-card-top">
+            <span class="proj-year">TIA Portal V17</span>
+            <span class="proj-domain scada">HMI / SCADA</span>
+          </div>
+          <div class="proj-title">
+            4-Way Traffic Light Control with Pedestrian Bypass
+          </div>
+          <div class="proj-desc">
+            Full intersection control system on S7-1200 (CPU 1215C) with WinCC
+            HMI, sequencing North → East → South → West using TP/TON/TOF timers
+            for Green → Yellow → Red transitions. A pedestrian crossing bypass
+            dynamically recalculates the green-light preset via SUB/ADD DInt
+            math when a pedestrian call is active, then reverts to normal timing
+            — with interlocked red-light logic keeping the three non-active
+            directions red at all times.
+          </div>
+          <div class="proj-tags">
+            <span class="proj-tag">CPU 1215C</span>
+            <span class="proj-tag">TP / TON / TOF</span>
+            <span class="proj-tag">WinCC HMI</span>
+            <span class="proj-tag">Interlocking</span>
+          </div>
+          <div class="proj-media-row">
+            <button
+              class="media-btn video"
+              onclick="
+                openMediaModal(
+                  'video',
+                  'media/videos/4 way traffic light.mp4',
+                  '4-Way Traffic Light Control with Pedestrian Bypass',
+                )
+              "
+            >
+              <svg viewBox="0 0 24 24" fill="currentColor">
+                <path d="M8 5v14l11-7z" />
+              </svg>
+              Watch Demo
+            </button>
+            <a
+              class="media-btn"
+              href="docs/15-%204%20Way%20Traffic%20Light%20with%20Pedestrian%20Bypass.pdf"
+              target="_blank"
+            >
+              <svg
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2"
+              >
+                <path
+                  d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"
+                />
+                <path d="M14 2v6h6" />
+              </svg>
+              View PDF
+            </a>
+          </div>
+        </div>
+
+        <!-- 14: Motor Off LED Flash -->
+        <div class="proj-card">
+          <div class="proj-card-top">
+            <span class="proj-year">TIA Portal V17</span>
+            <span class="proj-domain">Safety Logic</span>
+          </div>
+          <div class="proj-title">Motor Off with LED Flash Logic</div>
+          <div class="proj-desc">
+            Programmed a post-shutdown warning sequence where the motor's status
+            LED flashes for a defined interval after the Stop command before
+            settling to a steady Off state, alerting operators that the motor is
+            coasting down rather than instantly de-energized.
+          </div>
+          <div class="proj-tags">
+            <span class="proj-tag">TOF Timer</span>
+            <span class="proj-tag">Flash Logic</span>
+            <span class="proj-tag">Ladder Logic</span>
+          </div>
+          <div class="proj-media-row">
+            <a
+              class="media-btn"
+              href="docs/7.1-Motor%20off%20with%20LED%20Flash.pdf"
+              target="_blank"
+            >
+              <svg
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2"
+              >
+                <path
+                  d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"
+                />
+                <path d="M14 2v6h6" />
+              </svg>
+              PDF (Logic 1)
+            </a>
+            <a
+              class="media-btn"
+              href="docs/7.2-Motor%20off%20with%20LED%20Flash%20logic%202.pdf"
+              target="_blank"
+            >
+              <svg
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2"
+              >
+                <path
+                  d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"
+                />
+                <path d="M14 2v6h6" />
+              </svg>
+              PDF (Logic 2)
+            </a>
+          </div>
+        </div>
+
+        <!-- 15: Coffee Machine -->
+        <div class="proj-card">
+          <div class="proj-card-top">
+            <span class="proj-year">TIA Portal V17</span>
+            <span class="proj-domain">Process Automation</span>
+          </div>
+          <div class="proj-title">Automated Coffee Machine</div>
+          <div class="proj-desc">
+            Sequenced beverage preparation logic covering ingredient dispensing
+            order, timed brewing stages, and cup-ready signaling, with
+            selection-based branching for different drink types.
+          </div>
+          <div class="proj-tags">
+            <span class="proj-tag">Sequential Logic</span>
+            <span class="proj-tag">Timers</span>
+            <span class="proj-tag">Selector Branching</span>
+          </div>
+          <div class="proj-media-row">
+            <a
+              class="media-btn"
+              href="docs/6-Automated%20coffee%20machine.pdf"
+              target="_blank"
+            >
+              <svg
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2"
+              >
+                <path
+                  d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"
+                />
+                <path d="M14 2v6h6" />
+              </svg>
+              View PDF
+            </a>
+          </div>
+        </div>
+
+        <!-- 16: QC Rejection -->
+        <div class="proj-card">
+          <div class="proj-card-top">
+            <span class="proj-year">TIA Portal V17</span>
+            <span class="proj-domain">Quality Control</span>
+          </div>
+          <div class="proj-title">Quality Control Rejection System</div>
+          <div class="proj-desc">
+            Inspection-driven rejection logic that flags out-of-spec parts on a
+            line and actuates a pneumatic reject mechanism, with pass/fail
+            counters feeding a running yield percentage.
+          </div>
+          <div class="proj-tags">
+            <span class="proj-tag">Inspection Logic</span>
+            <span class="proj-tag">Pneumatic Reject</span>
+            <span class="proj-tag">Yield Tracking</span>
+          </div>
+          <div class="proj-media-row">
+            <a
+              class="media-btn"
+              href="docs/12-Quality%20Control%20Rejection%20System.pdf"
+              target="_blank"
+            >
+              <svg
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2"
+              >
+                <path
+                  d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"
+                />
+                <path d="M14 2v6h6" />
+              </svg>
+              View PDF
+            </a>
+          </div>
+        </div>
+
+        <!-- 17: Chemical Dosing -->
+        <div class="proj-card">
+          <div class="proj-card-top">
+            <span class="proj-year">TIA Portal V17</span>
+            <span class="proj-domain">Process Control</span>
+          </div>
+          <div class="proj-title">Smart Chemical Dosing Tank System</div>
+          <div class="proj-desc">
+            Proportional dosing control logic metering chemical additive into a
+            process tank based on flow/level feedback, with dosing-rate limits
+            and a fail-safe shutoff on sensor fault.
+          </div>
+          <div class="proj-tags">
+            <span class="proj-tag">Proportional Dosing</span>
+            <span class="proj-tag">Fail-Safe Shutoff</span>
+            <span class="proj-tag">Analog Feedback</span>
+          </div>
+          <div class="proj-media-row">
+            <a
+              class="media-btn"
+              href="docs/13-Smart%20Chemical%20Dosing%20Tank%20System.pdf"
+              target="_blank"
+            >
+              <svg
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2"
+              >
+                <path
+                  d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"
+                />
+                <path d="M14 2v6h6" />
+              </svg>
+              View PDF
+            </a>
+          </div>
+        </div>
+
+        <!-- 18: PID Temp Control -->
+        <div class="proj-card">
+          <div class="proj-card-top">
+            <span class="proj-year">TIA Portal V17</span>
+            <span class="proj-domain">Process Control</span>
+          </div>
+          <div class="proj-title">Temperature Control with PID Simulation</div>
+          <div class="proj-desc">
+            Simulated closed-loop temperature control using a PID function block
+            tuned against a modeled thermal process, comparing controller
+            response for proportional, integral, and derivative adjustments.
+          </div>
+          <div class="proj-tags">
+            <span class="proj-tag">PID Block</span>
+            <span class="proj-tag">Closed Loop</span>
+            <span class="proj-tag">Loop Tuning</span>
+          </div>
+          <div class="proj-media-row">
+            <a
+              class="media-btn"
+              href="docs/14-Temperature%20Control%20with%20PID%20Simulation.pdf"
+              target="_blank"
+            >
+              <svg
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2"
+              >
+                <path
+                  d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"
+                />
+                <path d="M14 2v6h6" />
+              </svg>
+              View PDF
+            </a>
+          </div>
+        </div>
+
+        <!-- 19: S7-1200 Hardware Integration (wide, wiring gallery) -->
+        <div class="proj-card wide">
+          <div class="proj-card-top">
+            <span class="proj-year">DTI · Hardware</span>
+            <span class="proj-domain hw">Hardware</span>
+          </div>
+          <div class="proj-title">
+            Siemens S7-1200 Series Hardware Integration
+          </div>
+          <div class="proj-desc">
+            Panel-side wiring and integration work on a Siemens S7-1200:
+            explored source vs. sink wiring protocols, wired the CPU's digital
+            input/output terminals, and ran analog signal wiring for
+            instrumentation calibration.
+          </div>
+          <div class="proj-tags">
+            <span class="proj-tag">Source/Sink Wiring</span>
+            <span class="proj-tag">Digital I/O</span>
+            <span class="proj-tag">Analog Calibration</span>
+            <span class="proj-tag">Panel Wiring</span>
+          </div>
+          <div class="wiring-strip">
+            <div
+              class="wiring-thumb"
+              onclick="
+                openMediaModal(
+                  'image',
+                  'media/wiring/me doing wiring.jpeg',
+                  'S7-1200 Hardware Integration',
+                )
+              "
+            >
+              <span class="wiring-thumb-num">1</span>
+              <img
+                src="media/wiring/me doing wiring.jpeg"
+                alt="Wiring the S7-1200 panel"
+                loading="lazy"
+              />
+            </div>
+            <div
+              class="wiring-thumb"
+              onclick="
+                openMediaModal(
+                  'image',
+                  'media/wiring/wiring 1.jpeg',
+                  'S7-1200 Hardware Integration',
+                )
+              "
+            >
+              <span class="wiring-thumb-num">2</span>
+              <img
+                src="media/wiring/wiring 1.jpeg"
+                alt="S7-1200 wiring step 1"
+                loading="lazy"
+              />
+            </div>
+            <div
+              class="wiring-thumb"
+              onclick="
+                openMediaModal(
+                  'image',
+                  'media/wiring/wiring 2.jpeg',
+                  'S7-1200 Hardware Integration',
+                )
+              "
+            >
+              <span class="wiring-thumb-num">3</span>
+              <img
+                src="media/wiring/wiring 2.jpeg"
+                alt="S7-1200 wiring step 2"
+                loading="lazy"
+              />
+            </div>
+            <div
+              class="wiring-thumb"
+              onclick="
+                openMediaModal(
+                  'image',
+                  'media/wiring/wiring 3.jpeg',
+                  'S7-1200 Hardware Integration',
+                )
+              "
+            >
+              <span class="wiring-thumb-num">4</span>
+              <img
+                src="media/wiring/wiring 3.jpeg"
+                alt="S7-1200 wiring step 3"
+                loading="lazy"
+              />
+            </div>
+            <div
+              class="wiring-thumb"
+              onclick="
+                openMediaModal(
+                  'image',
+                  'media/wiring/wiring done.jpeg',
+                  'S7-1200 Hardware Integration',
+                )
+              "
+            >
+              <span class="wiring-thumb-num">5</span>
+              <img
+                src="media/wiring/wiring done.jpeg"
+                alt="Completed S7-1200 panel wiring"
+                loading="lazy"
+              />
+            </div>
+          </div>
+        </div>
+
+        <!-- 20: Bulb On/Off (beginner project, placed last) -->
+        <div class="proj-card">
+          <div class="proj-card-top">
+            <span class="proj-year">First Project</span>
+            <span class="proj-domain">Beginner</span>
+          </div>
+          <div class="proj-title">Bulb On/Off Control</div>
+          <div class="proj-desc">
+            My first hands-on PLC project — a simple Start/Stop bulb control
+            circuit on Siemens S7-1200. The starting point for everything that
+            followed.
+          </div>
+          <div class="proj-tags">
+            <span class="proj-tag">Basic I/O</span>
+            <span class="proj-tag">Ladder Logic</span>
+            <span class="proj-tag">S7-1200</span>
+          </div>
+          <div class="proj-media-row">
+            <button
+              class="media-btn video"
+              onclick="
+                openMediaModal(
+                  'video',
+                  'media/videos/Bulb on & OFF.mp4',
+                  'Bulb On/Off Control',
+                )
+              "
+            >
+              <svg viewBox="0 0 24 24" fill="currentColor">
+                <path d="M8 5v14l11-7z" />
+              </svg>
+              Watch Demo
+            </button>
           </div>
         </div>
       </div>
@@ -1127,16 +2419,78 @@
       <div class="certs-grid">
         <div class="cert-card">
           <div class="cert-icon">⚙️</div>
-          <div>
+          <div class="cert-body-wrap">
             <div class="cert-name">PLC, HMI &amp; SCADA Certification</div>
             <div class="cert-body">Descon Technical Institute (DTI)</div>
+            <div class="cert-status done">✓ Completed 2026</div>
+          </div>
+        </div>
+
+        <div class="cert-card">
+          <div class="cert-icon">🔌</div>
+          <div class="cert-body-wrap">
+            <div class="cert-name">Electrical Engineering Internship</div>
+            <div class="cert-body">NTDC — 220kV Transmission</div>
             <div class="cert-status done">✓ Completed 2025</div>
+            <button
+              class="cert-view-link"
+              onclick="
+                openMediaModal(
+                  'image',
+                  'media/certs/NTDC certificate.jpeg',
+                  'NTDC Internship Certificate',
+                )
+              "
+            >
+              <svg
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2"
+              >
+                <circle cx="12" cy="8" r="6" />
+                <path d="M9 14 6.5 22l5.5-3 5.5 3L15 14" />
+              </svg>
+              View Certificate
+            </button>
+          </div>
+        </div>
+
+        <div class="cert-card">
+          <div class="cert-icon">🤖</div>
+          <div class="cert-body-wrap">
+            <div class="cert-name">
+              Build &amp; Deploy AI on Embedded Systems
+            </div>
+            <div class="cert-body">University Course — FYP Digital Twin</div>
+            <div class="cert-status done">✓ Completed</div>
+            <button
+              class="cert-view-link"
+              onclick="
+                openMediaModal(
+                  'image',
+                  'media/certs/Build & Deploy AI on Embedded System.jpeg',
+                  'Build & Deploy AI on Embedded Systems — Course Certificate',
+                )
+              "
+            >
+              <svg
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2"
+              >
+                <circle cx="12" cy="8" r="6" />
+                <path d="M9 14 6.5 22l5.5-3 5.5 3L15 14" />
+              </svg>
+              View Certificate
+            </button>
           </div>
         </div>
 
         <div class="cert-card">
           <div class="cert-icon">⚡</div>
-          <div>
+          <div class="cert-body-wrap">
             <div class="cert-name">PEC Registration</div>
             <div class="cert-body">Pakistan Engineering Council</div>
             <div class="cert-status pending">In Progress</div>
@@ -1145,7 +2499,7 @@
 
         <div class="cert-card">
           <div class="cert-icon">🎓</div>
-          <div>
+          <div class="cert-body-wrap">
             <div class="cert-name">BS Electrical Engineering</div>
             <div class="cert-body">FAST–NUCES Lahore</div>
             <div class="cert-status done">Class of 2026</div>
@@ -1159,39 +2513,89 @@
         <div class="contact-eyebrow">Contact</div>
         <div class="contact-heading">Let's <span>Connect</span></div>
         <p class="contact-sub">
-          Open to Trainee E&amp;I Engineer roles, Automation positions, and Graduate Trainee programs in Oil &amp; Gas, Power, and Industrial Sectors.
+          Open to Trainee E&amp;I Engineer roles, Automation positions, and
+          Graduate Trainee programs in Oil &amp; Gas, Power, and Industrial
+          Sectors.
         </p>
+        <a
+          href="resume/Muhammad-Hassan-Resume.pdf"
+          download
+          class="contact-resume-btn"
+        >
+          <svg
+            width="14"
+            height="14"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="2.2"
+          >
+            <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4" />
+            <path d="M7 10l5 5 5-5" />
+            <path d="M12 15V3" />
+          </svg>
+          Download Resume (PDF)
+        </a>
         <div class="contact-grid">
           <a href="mailto:hassangoraya4321@gmail.com" class="contact-tile">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8">
+            <svg
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="1.8"
+            >
               <rect x="2" y="4" width="20" height="16" rx="2" />
               <path d="m22 7-10 7L2 7" />
             </svg>
             hassangoraya4321<br />@gmail.com
           </a>
-          <a href="https://www.linkedin.com/in/hassangoraya-/" target="_blank" class="contact-tile">
+          <a
+            href="https://www.linkedin.com/in/hassangoraya-/"
+            target="_blank"
+            class="contact-tile"
+          >
             <svg viewBox="0 0 24 24" fill="currentColor">
-              <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-4 0v7H10v-7a6 6 0 0 1 6-6z" />
+              <path
+                d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-4 0v7H10v-7a6 6 0 0 1 6-6z"
+              />
               <rect x="2" y="9" width="4" height="12" />
               <circle cx="4" cy="4" r="2" />
             </svg>
             linkedin.com/in/<br />hassangoraya-/
           </a>
-          <a href="https://hassangoraya.github.io/" target="_blank" class="contact-tile">
+          <a
+            href="https://hassangoraya.github.io/"
+            target="_blank"
+            class="contact-tile"
+          >
             <svg viewBox="0 0 24 24" fill="currentColor">
-              <path d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.531 1.032 1.531 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0 1 12 6.844a9.59 9.59 0 0 1 2.504.337c1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.02 10.02 0 0 0 22 12.017C22 6.484 17.522 2 12 2z" />
+              <path
+                d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.531 1.032 1.531 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0 1 12 6.844a9.59 9.59 0 0 1 2.504.337c1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.02 10.02 0 0 0 22 12.017C22 6.484 17.522 2 12 2z"
+              />
             </svg>
             hassangoraya<br />.github.io
           </a>
           <div class="contact-row-2">
             <a href="tel:+923203435296" class="contact-tile">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8">
-                <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 14a19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 3.6 3.18h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L7.91 10a16 16 0 0 0 6 6l.92-.92a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 21.73 17z" />
+              <svg
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="1.8"
+              >
+                <path
+                  d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 14a19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 3.6 3.18h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L7.91 10a16 16 0 0 0 6 6l.92-.92a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 21.73 17z"
+                />
               </svg>
               +92-320-3435296
             </a>
             <div class="contact-tile loc">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8">
+              <svg
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="1.8"
+              >
                 <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z" />
                 <circle cx="12" cy="10" r="3" />
               </svg>
@@ -1203,9 +2607,26 @@
     </section>
 
     <footer>
-      <span class="ft">© 2026 <span>Muhammad Hassan</span> · Lahore, Pakistan</span>
-      <span class="ft">Built with <span>HTML / CSS / JS</span> · Hosted on GitHub Pages</span>
+      <span class="ft"
+        >© 2026 <span>Muhammad Hassan</span> · Lahore, Pakistan</span
+      >
+      <span class="ft"
+        >Built with <span>HTML / CSS / JS</span> · Hosted on GitHub Pages</span
+      >
     </footer>
+
+    <!-- Media Modal (video + image lightbox) -->
+    <div
+      class="modal-overlay"
+      id="mediaModal"
+      onclick="if (event.target === this) closeMediaModal();"
+    >
+      <div class="modal-content">
+        <button class="modal-close" onclick="closeMediaModal()">&times;</button>
+        <div id="modalBody"></div>
+        <div class="modal-caption" id="modalCaption"></div>
+      </div>
+    </div>
 
     <script>
       const observer = new IntersectionObserver(
@@ -1216,11 +2637,44 @@
             }
           });
         },
-        { threshold: 0.08 }
+        { threshold: 0.08 },
       );
       document
         .querySelectorAll(".exp-item, .proj-card")
         .forEach((el) => observer.observe(el));
+
+      function openMediaModal(type, src, caption) {
+        const modal = document.getElementById("mediaModal");
+        const body = document.getElementById("modalBody");
+        const cap = document.getElementById("modalCaption");
+        body.innerHTML = "";
+        if (type === "video") {
+          const video = document.createElement("video");
+          video.src = src;
+          video.controls = true;
+          video.autoplay = true;
+          video.playsInline = true;
+          body.appendChild(video);
+        } else {
+          const img = document.createElement("img");
+          img.src = src;
+          img.alt = caption || "";
+          body.appendChild(img);
+        }
+        cap.textContent = caption || "";
+        modal.classList.add("open");
+      }
+
+      function closeMediaModal() {
+        const modal = document.getElementById("mediaModal");
+        const body = document.getElementById("modalBody");
+        modal.classList.remove("open");
+        body.innerHTML = "";
+      }
+
+      document.addEventListener("keydown", (e) => {
+        if (e.key === "Escape") closeMediaModal();
+      });
     </script>
   </body>
 </html>
